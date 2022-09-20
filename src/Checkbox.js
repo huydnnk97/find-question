@@ -1,6 +1,7 @@
 import './detail.css'
 import React from "react";
 import Detail from "./detail";
+
 class Checkbox extends React.Component {
     constructor(props) {
       super(props);

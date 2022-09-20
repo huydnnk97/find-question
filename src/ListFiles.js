@@ -41,7 +41,7 @@ function ListFiles() {
     }else{
     const a=[]
     question.forEach((q)=>{
-      if(q.title.includes(word)){
+      if(q.title.includes(word)||q.time?.includes(word)){
         a.push(q)
       }
     })
@@ -62,7 +62,7 @@ function ListFiles() {
           <Card.Content onClick={()=>{navigate(`/questions/ ${row.id} `)}} header={row.title} />
           <Card.Content description={row.description} />
           <Card.Content description={row.tags}/>
-            
+          <Card.Content description={row.time}></Card.Content>  
           <Button onClick={()=>{ deleteDoc(doc(db, "question", row.id),changes());
             
             }}>Delete</Button>

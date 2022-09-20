@@ -11,7 +11,7 @@ import {
     ref,
     uploadBytes
 } from "firebase/storage";
-
+import ReactMarkdown from "react-markdown";
 
 function Detail(props) {
     
@@ -33,7 +33,7 @@ function Detail(props) {
     async function addQuestion(){
         
         const usersCollectionRef = collection(db, "question");
-        await addDoc(usersCollectionRef, { title: title, description:description,tags:tags});
+        await addDoc(usersCollectionRef, { title: title, description:description,tags:tags,time:Date().toLocaleString()});
     }
     async function addArticle(){
         const usersCollectionRef = collection(db, "article");
@@ -91,6 +91,8 @@ function Detail(props) {
                     
 
                     <button onClick={() => { addImage() }}>Upload</button>
+                    <img src={URL.createObjectURL(imageUpload)}></img>
+                    <></>
                     
                 </div>
                 <label>
